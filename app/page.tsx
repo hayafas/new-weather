@@ -1,6 +1,22 @@
 "use client"
 
-import Image from "next/image";
+// ============================================================
+//  天気アプリ ― 全体の組み立て役（このファイルは「並べるだけ」）
+//
+//  ★ 各カードの中身は components/ の中の担当ファイルを編集してください ★
+//    天気     → app/components/Weather.tsx
+//    気温     → app/components/Temperature.tsx
+//    洗濯情報 → app/components/Laundry.tsx
+//    その他   → app/components/OtherInfo.tsx
+//
+//  ※ このファイル(page.tsx)は基本さわらなくてOK。
+//     さわる時はみんなで相談してから変えましょう（全員に影響するため）。
+// ============================================================
+
+import Weather from "./components/Weather";
+import Temperature from "./components/Temperature";
+import Laundry from "./components/Laundry";
+import OtherInfo from "./components/OtherInfo";
 import { useState } from "react";
 
 export default function Home() {
