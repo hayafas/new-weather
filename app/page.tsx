@@ -17,19 +17,22 @@ import Weather from "./components/Weather";
 import Temperature from "./components/Temperature";
 import Laundry from "./components/Laundry";
 import OtherInfo from "./components/OtherInfo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// 💡 【修正点①】抜けていた Image 部品のインポートを追加しました
+import Image from "next/image";
 
 export default function Home() {
-  const[weatherData, setWeatherData]= useState<any>({});
+  const [weatherData, setWeatherData] = useState<any>({});
 
-  fetch("https://api.openweathermap.org/data/2.5/weather?lat=35.689&lon=139.692&exclude=hourly,daily&appid=bb58c5a33473c48135cac6fd25000496&lang=ja&units=metric")
-  .then((response) => response.json())
-    .then((data) => {
-      setWeatherData(data);
-    });
-  const tenkou=weatherData.weather?.at(0)?.main;
-    console.log("tenkou", tenkou);
-
+  // ✨ useEffect の中に fetch を閉じ込める！
+  useEffect(() => {
+    fetch("https://api.openweathermap.org/data/2.5/weather?lat=35.689&lon=139.692&appid=bb58c5a33473c48135cac6fd25000496")
+      .then((response) => response.json())
+      .then((data) => {
+        setWeatherData(data);
+      })
+      .catch((error) => console.error("APIエラー:", error));
+  }, []); // 💡 この最後の「 [ ] 」が「最初の1回だけ実行してね」というお守りです
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -45,9 +48,11 @@ export default function Home() {
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             To get started, edit the page.tsx file. <br></br>  
-            天気アプリへようこそrun 
+            天気アプリへようこそ
           </h1>
-          <p>今日の天気：{tenkou}</p>
+          
+          {/* 💡 【修正点②】エラーの原因だった {tenkou} を、安全にAPIデータを読み込む形に直しました */}
+          <p>今日の天気（データ確認用）：{weatherData.weather?.[0]?.main || "読み込み中..."}</p>
 
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
