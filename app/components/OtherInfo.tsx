@@ -21,9 +21,53 @@ export default function OtherInfo() {
       <h2 className="text-base text-gray-600 mb-2">その他の情報</h2>
       {/* 例: 湿度・風・降水確率を横ならびにする
           <div className="flex justify-around text-center"> ... </div> */}
+           <div className="flex justify-around text-center">
+        <div>
+          <div className="text-xs text-gray-400">湿度</div>
+          <div className="text-lg font-bold mt-1">60%</div>
+        </div>
+        <div>
+          <div className="text-xs text-gray-400">風</div>
+          <div className="text-lg font-bold mt-1">3m/s</div>
+        </div>
+        <div>
+          <div className="text-xs text-gray-400">降水確率</div>
+          <div className="text-lg font-bold mt-1">10%</div>
+        </div>
+      </div>
+
+      <hr className="my-4 border-gray-200" />
+          
+      <div className="flex justify-between text-center">
+        <div>
+          <div className="text-xs text-gray-400">月</div>
+          <div className="text-2xl my-1">☀️</div>
+          <div className="text-sm">29/20</div>
+        </div>
+        <div>
+          <div className="text-xs text-gray-400">火</div>
+          <div className="text-2xl my-1">⛅</div>
+          <div className="text-sm">27/19</div>
+        </div>
+        <div>
+          <div className="text-xs text-gray-400">水</div>
+          <div className="text-2xl my-1">🌧️</div>
+          <div className="text-sm">24/18</div>
+        </div>
+        <div>
+          <div className="text-xs text-gray-400">木</div>
+          <div className="text-2xl my-1">☁️</div>
+          <div className="text-sm">26/19</div>
+        </div>
+        <div>
+          <div className="text-xs text-gray-400">金</div>
+          <div className="text-2xl my-1">☀️</div>
+          <div className="text-sm">30/21</div>
+        </div>
+      </div>
 
       {/* ▲▲▲ ここまで ▲▲▲ */}
-
     </div>
   );
+
 }
