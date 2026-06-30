@@ -13,10 +13,10 @@
 //     さわる時はみんなで相談してから変えましょう（全員に影響するため）。
 // ============================================================
 
-import Weather from "./components/Weather";
-import Temperature from "./components/Temperature";
-import Laundry from "./components/Laundry";
-import OtherInfo from "./components/OtherInfo";
+import Weather from "../components/Weather";
+import Temperature from "../components/Temperature";
+import Laundry from "../components/Laundry";
+import OtherInfo from "../components/OtherInfo";
 import { useState, useEffect } from "react";
 // 💡 【修正点①】抜けていた Image 部品のインポートを追加しました
 import Image from "next/image";
