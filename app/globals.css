@@ -1,3 +1,25 @@
+/**
+ * ====================================================================
+ * 【重要】このCSSファイルの構成について（開発者向け共有）
+ * ====================================================================
+ * このファイルは Tailwind CSS v4（最新仕様）をベースに構築されています。
+ * 従来のCSSと異なる以下の特徴があります。
+ *
+ * 1. `@import "tailwindcss";`
+ *    - Tailwindの基本機能を読み込んでいます。削除しないでください。
+ *
+ * 2. `:root` 内の `--background` / `--foreground`
+ *    - アプリ全体の「背景色」と「文字色」を定義するCSS変数です。
+ *    - カラーコード（#ffffff等）の左の四角をクリックすると色を変更できます。
+ *
+ * 3. `@theme inline`
+ *    - Tailwindに独自のフォントやテーマカラーを登録・拡張する新しい構文です。
+ *
+ * 💡【コーディング時の注意点】
+ * 独自のクラスや、普段通りのCSSを追加したい場合は、
+ * 既存のコードは書き換えずに「ファイルの一番下（28行目以降）」に追記してください。
+ */
+
 @import "tailwindcss";
 
 :root {
@@ -23,4 +45,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.weather-bg-sunny {
+  background: linear-gradient(to bottom, #7dd3fc, #e0f2fe);
+  color: #0f172a;
 }
