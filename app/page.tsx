@@ -4,7 +4,7 @@ import Weather from "../components/weather_data";
 import BlurText from "../components/BlurText";
 
 const handleAnimationComplete = () => {
-  console.log('Animation completed!');
+console.log('Animation completed!');
 };
 
 export default function Homepage() {
@@ -19,8 +19,7 @@ export default function Homepage() {
             天気アプリへようこそ
           </h1>
         </div>
-
-
+        
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
             天気予報

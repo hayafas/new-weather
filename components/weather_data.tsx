@@ -47,6 +47,11 @@ export default function Weather() {
         console.error("位置情報取得エラー:", error);
         setErrorMsg("位置情報の取得が許可されませんでした。");
         setLoading(false);
+      },
+      {
+        enableHighAccuracy: false, // 高精度を求めない（高速化）
+        // timeout: 5000,             // 5秒経ったら諦める
+        maximumAge: 300000          // 5分以内に取得したキャッシュがあればそれを使う
       }
     );
   }, []); // 最後の [ ] が「最初の1回だけ実行してね」というお守り
@@ -64,7 +69,7 @@ export default function Weather() {
           className="weather-status"
         />
         <img src={weatherData.weather?.[0]?.icon
-          ? "https://openweathermap.org/payload/api/media/file/" + weatherData.weather?.[0]?.icon + ".png"
+          ? "https://openweathermap.org/payload/api/media/file/" + weatherData.weather?.[0]?.icon + "@2x.png"
           : "/loading_icon.png"}
           alt={"天気アイコン"}
           width="40px"
